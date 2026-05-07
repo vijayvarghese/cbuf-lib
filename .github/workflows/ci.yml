@@ -50,6 +50,12 @@ jobs:
       - name: Install cppcheck
         run: sudo apt-get update && sudo apt-get install -y cppcheck
 
+      - name: Debug — show working directory and file tree
+        run: |
+          pwd
+          find . -type f | sort
+
+
       - name: Run cppcheck (MISRA C:2012)
         working-directory: ${{ github.workspace }}   # ← explicit root
         run: |
