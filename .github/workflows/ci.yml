@@ -51,12 +51,16 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y cppcheck
 
       - name: Run cppcheck (MISRA C:2012)
-        run: cppcheck \
-          --addon=misra  \
-          --suppressions-list=cppcheck-suppressions.txt \
-          --error-exitcode=1 \
-          -I include/ \
-          src/cbuf.c
+        working-directory: ${{ github.workspace }}   # ← explicit root
+        run: |
+          cppcheck \
+            --enable=all \
+            --disable=information \
+            --addon=misra \
+            --suppressions-list=cppcheck-suppressions.txt \
+            --error-exitcode=1 \
+            -I include/ \
+            src/cbuf.c
 
   # ── Job 3: Confirm zero compiler warnings ───────────────────
   warnings-clean:
