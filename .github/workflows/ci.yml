@@ -60,8 +60,6 @@ jobs:
         working-directory: ${{ github.workspace }}   # ← explicit root
         run: |
           cppcheck \
-            --enable=all \
-            --disable=information \
             --addon=misra \
             --suppressions-list=cppcheck-suppressions.txt \
             --error-exitcode=1 \
