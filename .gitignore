@@ -1,0 +1,47 @@
+# Build output
+build/
+out/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+Makefile
+install_manifest.txt
+compile_commands.json
+_deps/
+
+# cppcheck reports
+*.cppcheck
+checkers-report.txt
+
+# Test binaries and results
+Testing/
+*.test
+test_cbuf
+
+# Object files and static libs
+*.o
+*.a
+*.so
+*.out
+*.elf
+*.hex
+*.bin
+*.map
+
+# Editor and IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Dependency / package managers
+*.lock
+node_modules/
+
+# OS
+Thumbs.db

@@ -1,0 +1,13 @@
+// cppcheck-suppressions.txt
+// unusedFunction: Public API library functions are intentionally
+// not called within the library itself. Callers are in test_cbuf.c
+// and future application code.
+unusedFunction
+missingIncludeSystem
+
+
+// misra-c2012-8.7: All functions in cbuf.c are public API with
+// external linkage by design. This library is consumed by other
+// translation units. cppcheck sees only cbuf.c in isolation and
+// cannot verify cross-TU usage.
+misra-c2012-8.7
