@@ -1,0 +1,15 @@
+# Makefile (optional but nice to have)
+.PHONY: analyze test clean
+
+analyze:
+	cppcheck --addon=misra \
+	  --suppress=missingIncludeSystem --error-exitcode=1 \
+	  include/ src/
+
+test:
+	cmake -B build -DCMAKE_BUILD_TYPE=Debug && \
+	cmake --build build && \
+	cd build && ctest --output-on-failure
+
+clean:
+	rm -rf build/
